@@ -52,6 +52,13 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <!-- 自己项目的依赖 -->
+    <dependency>
+      <groupId>com.grady.springcloud</groupId>
+      <artifactId>cloud-api-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
   </dependencies>
 
 </project>
