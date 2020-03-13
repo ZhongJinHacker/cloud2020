@@ -2,6 +2,7 @@ package com.grady.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @author gradyjiang
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description: TODO
  * @date 2020/3/13
  */
+@EnableEurekaClient
 @SpringBootApplication
 public class PaymentMain8001 {
 
