@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bd84d8c-11ff-4f4a-9637-82f25c90cad6" name="Default Changelist" comment="" />
+    <list default="true" id="7bd84d8c-11ff-4f4a-9637-82f25c90cad6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cloud-provider-payment8001/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-provider-payment8001/src/main/java/com/grady/springcloud/PaymentMain8001.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-provider-payment8001/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud2020.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -15,13 +35,20 @@
     </option>
   </component>
   <component name="ProjectId" id="1Z3LPcIWT265ZL3JqG2a20ScJWx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.20800781" />
+    <property name="project.structure.side.proportion" value="0.16930377" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="TaskManager">
@@ -35,6 +62,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="506" y="230" width="934" height="669" key="#Project_Structure" timestamp="1584089950447">
+      <screen x="45" y="23" width="1395" height="877" />
+    </state>
+    <state x="506" y="230" width="934" height="669" key="#Project_Structure/45.23.1395.877@45.23.1395.877" timestamp="1584089950447" />
     <state width="1264" height="206" key="GridCell.Tab.0.bottom" timestamp="1584064091501">
       <screen x="48" y="23" width="1392" height="877" />
     </state>
@@ -51,9 +82,21 @@
       <screen x="48" y="23" width="1392" height="877" />
     </state>
     <state width="1264" height="206" key="GridCell.Tab.0.right/48.23.1392.877@48.23.1392.877" timestamp="1584064091500" />
+    <state x="163" y="191" key="Maven.ArtifactSearchDialog" timestamp="1584089752969">
+      <screen x="45" y="23" width="1395" height="877" />
+    </state>
+    <state x="163" y="191" key="Maven.ArtifactSearchDialog/45.23.1395.877@45.23.1395.877" timestamp="1584089752969" />
+    <state x="518" y="265" key="NewModule_or_Project.wizard" timestamp="1584089896421">
+      <screen x="45" y="23" width="1395" height="877" />
+    </state>
+    <state x="518" y="265" key="NewModule_or_Project.wizard/45.23.1395.877@45.23.1395.877" timestamp="1584089896421" />
     <state x="43" y="120" key="SettingsEditor" timestamp="1584063007988">
       <screen x="48" y="23" width="1392" height="877" />
     </state>
     <state x="43" y="120" key="SettingsEditor/48.23.1392.877@48.23.1392.877" timestamp="1584063007988" />
+    <state x="170" y="171" key="new project wizard" timestamp="1584083764030">
+      <screen x="48" y="23" width="1392" height="877" />
+    </state>
+    <state x="170" y="171" key="new project wizard/48.23.1392.877@48.23.1392.877" timestamp="1584083764030" />
   </component>
 </project>
