@@ -8,3 +8,6 @@ eureka 访问地址
   访问地址
   eureka7001.com:7001
   eureka7002.com:7002
+  
+hystrix dashboard 地址
+http://localhost:9001/hystrix
