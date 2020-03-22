@@ -1,8 +1,10 @@
 package com.grady.springcloud.service;
 
+import cn.hutool.core.util.IdUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,6 +27,9 @@ public class PaymentService {
         return "线程池: " + Thread.currentThread().getName() + " PaymentInfo_OK,id: " + id + "\t" + "O(∩_∩)O哈哈~";
     }
 
+
+    // =========== 服务降级
+
     // 3000 表示 3秒以内是正常逻辑,超时或报错 执行 paymentInfo_TimeoutHandler 方法
     @HystrixCommand(fallbackMethod = "paymentInfo_TimeoutHandler",
             commandProperties = { @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000") })
@@ -43,5 +48,27 @@ public class PaymentService {
 
     public String paymentInfo_TimeoutHandler(Integer id) {
         return "线程池: " + Thread.currentThread().getName() + "8001系统忙或报错,稍后再试,idL " + id + "\t" + "o(╥﹏╥)o";
+    }
+
+    // ========= 服务熔断
+
+    @HystrixCommand(fallbackMethod = "paymentCircuitBreaker_fallback", commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),                   // 是否开启断路器
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),      // 请求次数
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "1000"), // 时间窗口
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60")     // 失败率多少次跳闸
+    })
+    public String paymentCircuitBreaker(@PathVariable("id")Integer id) {
+        if(id < 0) {
+            throw new RuntimeException("id不能是负数！");
+        }
+
+        String serial = IdUtil.simpleUUID();
+
+        return Thread.currentThread().getName() + "\t" + "调用成功，流水号：" + serial;
+    }
+
+    public String paymentCircuitBreaker_fallback(@PathVariable("id")Integer id) {
+        return "CircuitBreaker 服务熔断，请稍后再试~~~ " + id;
     }
 }
