@@ -4,8 +4,10 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.grady.springcloud.entities.CommonResult;
 import com.grady.springcloud.entities.Payment;
+import com.grady.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,4 +62,13 @@ public class CircleBreakerController {
         return new CommonResult<>(445, "blockHandler-sentinel 限流，无此流水号：blockException" + exception.getMessage(), payment);
     }
 
+    // ------- open feign ------------------------------------------------------
+
+    @Autowired
+    private PaymentService paymentService;
+
+    @GetMapping("/consumer/paymentSQL/{id}")
+    public CommonResult<Payment> paymentSQL(@PathVariable("id") Long id) {
+        return paymentService.paymentSQL(id);
+    }
 }
