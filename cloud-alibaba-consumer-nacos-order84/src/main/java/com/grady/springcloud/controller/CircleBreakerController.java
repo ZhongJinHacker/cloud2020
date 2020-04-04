@@ -29,8 +29,10 @@ public class CircleBreakerController {
     private RestTemplate restTemplate;
 
     @RequestMapping("/consumer/fallback/{id}")
-    @SentinelResource(value = "fallback") //没有配置,给客户Error页面，不友好
-//    @SentinelResource(value = "fallback",fallback = "handlerFallback") //配置了fallback的，fallback只负责业务异常
+    //没有配置,给客户Error页面，不友好
+    //@SentinelResource(value = "fallback")
+    //配置了fallback的，fallback只负责业务异常
+    @SentinelResource(value = "fallback", fallback = "handlerFallback")
 //    @SentinelResource(value = "fallback", blockHandler = "blockHandler") // 配置了blockHandler，只负责sentinel控制台配置违规
 //    @SentinelResource(value = "fallback",fallback = "handlerFallback", blockHandler = "blockHandler",
 //           exceptionsToIgnore = {IllegalArgumentException.class}) // 配置了blockHandler和fallback
