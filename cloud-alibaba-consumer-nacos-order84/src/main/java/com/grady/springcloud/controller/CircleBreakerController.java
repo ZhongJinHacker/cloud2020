@@ -36,13 +36,13 @@ public class CircleBreakerController {
     // 配置了 blockHandler，blockHandler只有在sentinel中进行熔断配置才可以触发，为达到sentinel中的配置时，直接返回异常
     //@SentinelResource(value = "fallback", blockHandler = "blockHandler")
     // fallback 和 blockHandler 都配置，则未满足sentinel配置走fallback， 满足sentinel配置走blockHandler
-    @SentinelResource(value = "fallback",fallback = "handlerFallback", blockHandler = "blockHandler",
+    @SentinelResource(value = "fallback", fallback = "handlerFallback", blockHandler = "blockHandler",
            exceptionsToIgnore = {IllegalArgumentException.class}) // 忽略exceptionsToIgnore对应的异常，直接抛出给前端
-    public CommonResult<Payment> fallback(@PathVariable("id") Long id){
+    public CommonResult<Payment> fallback(@PathVariable("id") Long id) {
         CommonResult<Payment> commonResult = restTemplate.getForObject(SERVICE_URL + "/paymentSQL/" + id, CommonResult.class);
-        if(id == 4){
+        if (id == 4) {
             throw new IllegalArgumentException("IllegalArgumentException,非法参数异常");
-        }else if(commonResult.getData() == null){
+        } else if(commonResult.getData() == null) {
             throw new NullPointerException("NullPointerException,该ID没有记录，空指针异常");
         }
         return commonResult;
