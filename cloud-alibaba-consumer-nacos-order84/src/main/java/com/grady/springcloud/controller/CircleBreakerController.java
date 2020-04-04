@@ -32,8 +32,9 @@ public class CircleBreakerController {
     //没有配置,给客户Error页面，不友好
     //@SentinelResource(value = "fallback")
     //配置了fallback的，fallback只负责业务异常
-    @SentinelResource(value = "fallback", fallback = "handlerFallback")
-//    @SentinelResource(value = "fallback", blockHandler = "blockHandler") // 配置了blockHandler，只负责sentinel控制台配置违规
+    //@SentinelResource(value = "fallback", fallback = "handlerFallback")
+    // 配置了 blockHandler，blockHandler只有在sentinel中进行熔断配置才可以触发，为达到sentinel中的配置时，直接返回异常
+    @SentinelResource(value = "fallback", blockHandler = "blockHandler")
 //    @SentinelResource(value = "fallback",fallback = "handlerFallback", blockHandler = "blockHandler",
 //           exceptionsToIgnore = {IllegalArgumentException.class}) // 配置了blockHandler和fallback
     public CommonResult<Payment> fallback(@PathVariable("id") Long id){
@@ -47,11 +48,12 @@ public class CircleBreakerController {
     }
 
     // 本例是fallback
-    public CommonResult handlerFallback(Long id, Throwable e){
-        Payment payment = new Payment(id, null);
-        return new CommonResult(444, "兜底异常handler，exception内容"+e.getMessage(), payment);
-    }
+//    public CommonResult handlerFallback(Long id, Throwable e){
+//        Payment payment = new Payment(id, null);
+//        return new CommonResult(444, "兜底异常handler，exception内容"+e.getMessage(), payment);
+//    }
 
+    // blockHandler func
     public CommonResult blockHandler(Long id, BlockException exception){
         Payment payment = new Payment(id, null);
         return new CommonResult<>(445, "blockHandler-sentinel 限流，无此流水号：blockException" + exception.getMessage(), payment);
